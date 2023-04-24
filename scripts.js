@@ -5,6 +5,12 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const entries = new FormData(event.target);
   const { dividend, divider } = Object.fromEntries(entries);
-//   Scenario: Dividing numbers result in a decimal number
-  result.innerText = Math.floor(dividend / divider);
+  //   Scenario: Validation when values are missing
+  if (dividend === "" || divider === "") {
+    result.innerText =
+      "Division not performed. Both values are required in inputs. Try again";
+  } else {
+    //   Scenario: Dividing numbers result in a decimal number
+    result.innerText = Math.floor(dividend / divider);
+  }
 });
