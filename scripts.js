@@ -10,6 +10,12 @@ form.addEventListener("submit", (event) => {
     result.innerText =
       "Division not performed. Both values are required in inputs. Try again";
   }
+  //   Scenario: Providing anything that is not a number should crash the program
+  if (isNaN(dividend) || isNaN(divider)) {
+    console.error(new Error("Something critical went wrong. Please reload the page."));
+    document.body.innerHTML =
+      "<h1>Something critical went wrong. Please reload the page.</h1>";
+  }
   //   Scenario: An invalid division should log an error in the console
   if (dividend < 0 || divider < 0) {
     result.innerText =
