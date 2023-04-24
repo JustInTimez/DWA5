@@ -9,6 +9,12 @@ form.addEventListener("submit", (event) => {
   if (dividend === "" || divider === "") {
     result.innerText =
       "Division not performed. Both values are required in inputs. Try again";
+  }
+  //   Scenario: An invalid division should log an error in the console
+  if (dividend < 0 || divider < 0) {
+    result.innerText =
+      "Division not performed. Invalid number provided. Try again";
+    console.trace();
   } else {
     //   Scenario: Dividing numbers result in a decimal number
     result.innerText = Math.floor(dividend / divider);
